@@ -1,23 +1,33 @@
-<div class="panel panel-default">
+<br>
+<div class="panel panel-danger">
   <div class="panel-heading">
-    メッセージ一覧
+    <h5 class="panel-title">Message Room</h5>
   </div>
     
   <div class="panel-body">
+     <h4>メッセージ</h4><hr>
     <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
+      <span class="label label-danger"><%= message.name %></span> > 
       <%= message.body %>
       <br>
     <% end %>
   </div>
 </div>
 
-<%= form_for(@message) do |f| %>
-  名前:
-  <%= f.text_field :name %>
 
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
-<% end %>
+<div class="panel panel-danger">
+ <div class="panel-body">
+	    
+   <%= form_for(@message) do |f| %>
+     Name:
+     <%= f.text_field :name %><br><br>
 
+     Mess:
+     <%= f.text_area :body, :size=>"30x3" %><br><br>
+	</div>
+
+  <div class="panel-footer">
+     send: <%= f.submit class: "btn btn-sm btn-danger" %>
+  <% end %>
+ </div>
+</div>
